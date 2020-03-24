@@ -1,0 +1,22 @@
+storage:
+  type: 'YAML' #YAML or MySQL
+  mysql:
+    hostname: 'localhost'
+    username: 'root'
+    password: ''
+    database: 'rankup'
+    port: 3306
+    
+rank-settings:
+  first-rank: 'A'
+  last-rank: 'B'
+
+ranks:
+  'A':
+    next-rank: 'B'
+    requirements:
+      'permission':
+        requirement-type: 'HAS_PERMISSION'
+        input: 'rankup.b'
+    actions:
+      - '[MESSAGE] &fYou ranked up to B!'

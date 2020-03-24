@@ -1,0 +1,6 @@
+commands:
+  noPermission: '&cYou don''t have the permission for execute this command'
+  rankup:
+    lastRankReached: '&cYou''ve already reached the last rank'
+    noRequirements: '&cYou don''t have the requirements to rank up'
+    done: '&aYou''re now on rank %rank'

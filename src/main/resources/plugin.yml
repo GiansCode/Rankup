@@ -1,0 +1,9 @@
+name: Rankup
+author: xQuickGlare
+version: 1.0
+main: io.alerium.rankup.RankupPlugin
+api-version: 1.15
+depend: [PlaceholderAPI]
+commands: 
+  rankup:
+    description: This command is to do the rankup
