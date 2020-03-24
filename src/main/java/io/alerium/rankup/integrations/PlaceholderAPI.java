@@ -2,6 +2,7 @@ package io.alerium.rankup.integrations;
 
 import io.alerium.rankup.RankupPlugin;
 import io.alerium.rankup.playerdata.PlayerData;
+import io.alerium.rankup.ranks.Rank;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 
@@ -26,10 +27,17 @@ public class PlaceholderAPI extends PlaceholderExpansion {
 
     @Override
     public String onPlaceholderRequest(Player player, String params) {
-        if (!params.equalsIgnoreCase("rank"))
-            return null;
-
         PlayerData playerData = plugin.getPlayerDataManager().getPlayer(player.getUniqueId());
-        return playerData.getRank();
+        switch (params.toUpperCase()) {
+            case "RANK":
+                return playerData.getRank();
+            case "NEXT_RANK":
+                Rank rank = plugin.getRankManager().getRank(playerData.getRank());
+                if (rank == null)
+                    return null;
+                return rank.getNextRank();
+            default:
+                return null;
+        }
     }
 }
