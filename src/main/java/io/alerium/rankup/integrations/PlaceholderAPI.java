@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 public class PlaceholderAPI extends PlaceholderExpansion {
     
     private final RankupPlugin plugin = RankupPlugin.getInstance();
+    private final String nonePlaceholder = plugin.getMessages().getMessage("nonePlaceholder").format().toString();
     
     @Override
     public String getIdentifier() {
@@ -37,7 +38,7 @@ public class PlaceholderAPI extends PlaceholderExpansion {
                     return null;
                 return rank.getNextRank();
             default:
-                return null;
+                return nonePlaceholder;
         }
     }
 }

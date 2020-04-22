@@ -4,3 +4,5 @@ commands:
     lastRankReached: '&cYou''ve already reached the last rank'
     noRequirements: '&cYou don''t have the requirements to rank up'
     done: '&aYou''re now on rank %rank'
+    
+nonePlaceholder: '&cNone'
