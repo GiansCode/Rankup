@@ -1,9 +1,11 @@
 name: Rankup
 author: xQuickGlare
-version: 1.0
+version: 1.1
 main: io.alerium.rankup.RankupPlugin
 api-version: 1.15
 depend: [PlaceholderAPI]
 commands: 
   rankup:
     description: This command is to do the rankup
+  adminrankup:
+    description: This command is used to reload the plugin

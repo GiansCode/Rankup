@@ -80,6 +80,9 @@ public class PlayerDataManager {
      * @param remove True if the PlayerData has to be removed from the cache
      */
     public void savePlayer(PlayerData playerData, boolean remove) {
+        if (playerData == null || playerData.getUuid() == null)
+            return;
+        
         try {
             storage.saveData(playerData);
         } catch (Exception e) {

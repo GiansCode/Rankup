@@ -19,21 +19,7 @@ public class RankManager {
      * This method enables the RankManager
      */
     public void enable() {
-        ConfigurationSection section = plugin.getConfiguration().getConfig().getConfigurationSection("ranks");
-        for (String id : section.getKeys(false)) {
-            ConfigurationSection rankSection = section.getConfigurationSection(id);
-            
-            String nextRank = rankSection.getString("next-rank");
-            ConfigurationSection requirements = rankSection.getConfigurationSection("requirements");
-            List<String> actions = rankSection.getStringList("actions");
-            
-            ranks.add(new Rank(id, nextRank, requirements, actions));
-        }
-        
-        plugin.getLogger().info("Loaded " + ranks.size() + " ranks.");
-    
-        firstRank = plugin.getConfiguration().getConfig().getString("rank-settings.first-rank");
-        lastRank = plugin.getConfiguration().getConfig().getString("rank-settings.last-rank");
+        loadRanks();
     }
 
     /**
@@ -48,6 +34,29 @@ public class RankManager {
         }
         
         return null;
+    }
+
+    /**
+     * This method loads all the ranks from the config
+     */
+    public void loadRanks() {
+        ranks.clear();
+        
+        ConfigurationSection section = plugin.getConfiguration().getConfig().getConfigurationSection("ranks");
+        for (String id : section.getKeys(false)) {
+            ConfigurationSection rankSection = section.getConfigurationSection(id);
+
+            String nextRank = rankSection.getString("next-rank");
+            ConfigurationSection requirements = rankSection.getConfigurationSection("requirements");
+            List<String> actions = rankSection.getStringList("actions");
+
+            ranks.add(new Rank(id, nextRank, requirements, actions));
+        }
+
+        plugin.getLogger().info("Loaded " + ranks.size() + " ranks.");
+
+        firstRank = plugin.getConfiguration().getConfig().getString("rank-settings.first-rank");
+        lastRank = plugin.getConfiguration().getConfig().getString("rank-settings.last-rank");
     }
     
 }

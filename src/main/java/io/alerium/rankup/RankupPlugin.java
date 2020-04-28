@@ -1,5 +1,6 @@
 package io.alerium.rankup;
 
+import io.alerium.rankup.commands.RankupAdminCommand;
 import io.alerium.rankup.commands.RankupCommand;
 import io.alerium.rankup.integrations.PlaceholderAPI;
 import io.alerium.rankup.playerdata.PlayerDataManager;
@@ -66,6 +67,7 @@ public class RankupPlugin extends JavaPlugin {
     
     private void registerCommands() {
         getCommand("rankup").setExecutor(new RankupCommand());
+        getCommand("adminrankup").setExecutor(new RankupAdminCommand());
     }
     
     private void registerIntegrations() {
